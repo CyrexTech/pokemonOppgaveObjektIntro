@@ -1,3 +1,4 @@
+
 let pikachuName = "Pikachu"
 
 let pikachu = {
@@ -31,9 +32,13 @@ let drowzee = {
 let possiblePokemon = [pikachu, bulbasaur, oranguru, drowzee];
 let randomPokemon = null;
 
-let playerName = "Bjarne";
-let playerImage = "/Images/pokemonTrainerIdle.png";
-let playerPokemon = [];
+
+const player = 
+  {
+    Name: "Bjarne",
+    Pokemon: [],
+    Image: "Images/pokemonTrainerIdle.png",
+  };
 
 let app = document.getElementById("app");
 
@@ -51,8 +56,8 @@ function updateView() {
     
     <div class="bottomScreen">
         <div class="player">
-            <img src="${playerImage}">
-            <div>${playerName}</div>
+            <img src="${player.Image}">
+            <div>${player.Name}</div>
         </div>
 
         <div class="buttonContainer">
@@ -69,7 +74,7 @@ function updateView() {
 function caughtPokemonView(){
   app.innerHTML = /*HTML*/`
   <div class="caughtContainer">
-    <h1>Du fanget ${playerPokemon[playerPokemon.length - 1].name}</h1>
+    <h1>Du fanget ${player.Pokemon[player.Pokemon.length - 1].name}</h1>
     <div class="buttonContainer">
               <button onclick="updateView()">Finn en annen</button>
               <button onclick="showPokemon()">Vis dine pokemon</button>
@@ -79,12 +84,12 @@ function caughtPokemonView(){
 }
 
 function catchPokemon(){
-  playerPokemon.push(randomPokemon);
+  player.Pokemon.push(randomPokemon);
   caughtPokemonView();
 }
 
 function showPokemon(){
-  console.log(playerPokemon);
+  console.log(player.Pokemon);
 }
 
 function getRandomPokemon(){
